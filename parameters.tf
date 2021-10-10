@@ -5,12 +5,12 @@ locals {
     }
     testing = {
       organization = "teste-team-module"
-      team_members = ["snifbr", "lipenodias"]
+      team_members = ["user1", "user2"]
       team_name    = "developers"
     }
     production = {
       organization = "teste-team-module"
-      team_members = ["karollynecosta", "rehzende", "jandson-oliveira"]
+      team_members = ["user1", "user2"]
       team_name    = "developers"
     }
   }
