@@ -29,6 +29,10 @@ jobs:
         id: init
         run: terraform init
 
+      - name: Create Workspace
+        id: workspace-create
+        run: terraform workspace new testing
+
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
@@ -56,6 +60,10 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init
+      
+      - name: Create Workspace
+        id: workspace-create
+        run: terraform workspace new testing
 
       - name: Terraform Validate
         id: validate
