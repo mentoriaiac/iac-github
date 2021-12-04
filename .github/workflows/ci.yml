@@ -13,7 +13,7 @@ env:
 
 jobs:
   terraform_module:
-    name: "Unit Tests"
+    name: "Aplicar permissões"
     runs-on: ubuntu-18.04
 
     steps:
