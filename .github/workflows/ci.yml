@@ -8,6 +8,9 @@ on:
       - main
   pull_request:
 
+env:
+  GITHUB_TOKEN: ${{ secrets.TF_GITHUB_TOKEN }}
+
 jobs:
   terraform_module:
     name: "Unit Tests"
