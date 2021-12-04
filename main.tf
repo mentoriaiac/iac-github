@@ -1,6 +1,6 @@
 module "github_teams_members" {
   source       = "github.com/mentoriaiac/iac-modulo-github.git?ref=v0.1.0"
-  organization = local.workspace.organization
-  team_members = local.workspace.team_members
-  team_name    = local.workspace.team_name
+  organization = "mentoriaiac"
+  team_members = ["gomex", "somatorio", "lgfa29", "sebastianwebber", "afonsoaugusto", "edsoncelio", "edsoncelio", "snifbr", "ya-kimura", "Rehzende", "marcelomansur", "lariskovski", "tainara-almeida", "lipenodias"]
+  team_name    = "moderadores"
 }

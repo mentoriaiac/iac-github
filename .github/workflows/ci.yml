@@ -29,50 +29,14 @@ jobs:
         id: init
         run: terraform init
 
-      - name: Create Workspace
-        id: workspace-create
-        run: terraform workspace new testing
-
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
 
-  terraform_how_to_use:
-    name: "Applying in Test"
-    runs-on: ubuntu-18.04
-    env:
-      GITHUB_TOKEN:  ${{ secrets.TF_GITHUB_TOKEN }}
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-        with:
-          terraform_version: 1.0.0
-
-      - name: Terraform Format
-        id: fmt
-        run: terraform fmt -check
-        continue-on-error: true
-
-      - name: Terraform Init
-        id: init
-        run: terraform init
-      
-      - name: Create Workspace
-        id: workspace-create
-        run: terraform workspace new testing
-
-      - name: Terraform Validate
-        id: validate
-        run: terraform validate -no-color
-
-      - name: Terraform plan
+      - name: Terraform Plan
         id: plan
-        run: terraform plan -no-color
+        run: terraform plan -out tfplan
 
-      - name: Terraform - applying in test organization
-        id: apply        
-        run: terraform apply -auto-approve -no-color
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply "tfplan"
